@@ -13,16 +13,54 @@ st.set_page_config(
 # --- 2. Custom CSS for Professional SaaS Look ---
 st.markdown("""
     <style>
-    /* General Body */
-    .stApp {background-color: #f4f6f9;}
+    /* Force Light Mode Appearance */
+    :root {
+        color-scheme: light !important;
+    }
     
-    /* Input/Output Text Areas */
+    /* General Body - Force Light Background */
+    .stApp {
+        background-color: #f4f6f9 !important;
+        color: #000000 !important;
+    }
+    
+    /* Text Area - FORCE BLACK TEXT regardless of Dark Mode */
     .stTextArea textarea {
-        background-color: #ffffff;
-        border: 1px solid #ced4da;
-        border-radius: 8px;
-        font-family: 'Arial', sans-serif;
-        font-size: 16px;
+        background-color: #ffffff !important;
+        color: #000000 !important;
+        -webkit-text-fill-color: #000000 !important; /* ফোনের ডার্ক মোড ফিক্স করার আসল লাইন */
+        caret-color: #000000 !important;
+        border: 1px solid #ced4da !important;
+        font-weight: 600;
+    }
+    
+    /* Placeholder Text */
+    .stTextArea textarea::placeholder {
+        color: #555555 !important;
+        -webkit-text-fill-color: #555555 !important;
+        opacity: 1;
+    }
+    
+    /* All Labels and Headers (Input Text, Rewritten Result etc.) */
+    label, h1, h2, h3, .stMarkdown, p {
+        color: #000000 !important;
+        -webkit-text-fill-color: #000000 !important;
+    }
+
+    /* Buttons */
+    .stButton>button {
+        background-color: #2563eb !important;
+        color: white !important;
+        -webkit-text-fill-color: white !important;
+        border: none;
+    }
+    
+    /* Hide Streamlit Default Elements */
+    #MainMenu {visibility: hidden;}
+    footer {visibility: hidden;}
+    header {visibility: hidden;}
+    </style>
+""", unsafe_allow_html=True)
     }
     
     /* Buttons */
